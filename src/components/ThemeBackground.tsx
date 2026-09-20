@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import type { BackgroundEffect } from "@/lib/themes";
 
@@ -113,6 +113,12 @@ function Confetti() {
 }
 
 export function ThemeBackground({ effect }: { effect: BackgroundEffect }) {
+  // Decorative only: render after hydration so the randomized inline styles
+  // never have to match server output.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   return (
     <div
       data-bg-effect={effect}
