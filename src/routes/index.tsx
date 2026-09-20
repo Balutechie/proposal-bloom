@@ -6,7 +6,9 @@ import { ThemePicker } from "@/components/ThemePicker";
 import { defaultTheme, getTheme, isThemeId, type ThemeId } from "@/lib/themes";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): { theme?: ThemeId; to?: string } => ({
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { theme?: ThemeId | undefined; to?: string | undefined } => ({
     theme: isThemeId(search["theme"]) ? search["theme"] : undefined,
     to: typeof search["to"] === "string" ? (search["to"] as string) : undefined,
   }),
@@ -45,7 +47,9 @@ const NO_LINES = [
 ];
 
 function Index() {
-  const { theme: themeId, to } = Route.useSearch();
+  const search = Route.useSearch();
+  const themeId: ThemeId = search.theme ?? defaultTheme;
+  const to = search.to;
   const navigate = useNavigate({ from: "/" });
   const theme = getTheme(themeId);
 
