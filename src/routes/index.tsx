@@ -6,8 +6,8 @@ import { ThemePicker } from "@/components/ThemePicker";
 import { defaultTheme, getTheme, isThemeId, type ThemeId } from "@/lib/themes";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    theme: isThemeId(search["theme"]) ? (search["theme"] as ThemeId) : defaultTheme,
+  validateSearch: (search: Record<string, unknown>): { theme?: ThemeId; to?: string } => ({
+    theme: isThemeId(search["theme"]) ? search["theme"] : undefined,
     to: typeof search["to"] === "string" ? (search["to"] as string) : undefined,
   }),
   head: () => ({
