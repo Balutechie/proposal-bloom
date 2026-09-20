@@ -48,5 +48,5 @@ export function isThemeId(value: unknown): value is ThemeId {
 }
 
 export function getTheme(id: ThemeId): ProposalTheme {
-  return themes.find((t) => t.id === id) ?? themes[0];
+  return themes.find((t) => t.id === id) ?? (themes[0] as ProposalTheme);
 }
