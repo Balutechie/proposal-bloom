@@ -5,13 +5,14 @@ import type { BackgroundEffect } from "@/lib/themes";
 function seeded(count: number, seed: number) {
   return Array.from({ length: count }, (_, i) => {
     const r = (n: number) => ((Math.sin(seed + i * 12.9898 + n * 78.233) + 1) / 2);
+    const round = (n: number) => Math.round(n * 100) / 100;
     return {
-      left: r(1) * 100,
-      delay: r(2) * 12,
-      duration: 9 + r(3) * 12,
-      size: 0.5 + r(4) * 1,
-      drift: (r(5) - 0.5) * 24,
-      opacity: 0.35 + r(6) * 0.55,
+      left: round(r(1) * 100),
+      delay: round(r(2) * 12),
+      duration: round(9 + r(3) * 12),
+      size: round(0.5 + r(4) * 1),
+      drift: round((r(5) - 0.5) * 24),
+      opacity: round(0.35 + r(6) * 0.55),
     };
   });
 }
@@ -26,8 +27,8 @@ function Petals() {
           className="absolute top-0 block rounded-[50%_0_50%_0] bg-primary/50"
           style={{
             left: `${p.left}%`,
-            width: `${p.size * 14}px`,
-            height: `${p.size * 14}px`,
+            width: `${Math.round(p.size * 14)}px`,
+            height: `${Math.round(p.size * 14)}px`,
             opacity: p.opacity,
             ["--drift" as string]: `${p.drift}vw`,
             animation: `fall-drift ${p.duration}s linear ${p.delay}s infinite`,
@@ -48,10 +49,10 @@ function Stars() {
           className="absolute block rounded-full bg-primary"
           style={{
             left: `${p.left}%`,
-            top: `${(p.delay / 12) * 100}%`,
-            width: `${p.size * 3}px`,
-            height: `${p.size * 3}px`,
-            animation: `twinkle ${2 + p.size * 3}s ease-in-out ${p.delay / 2}s infinite`,
+            top: `${Math.round((p.delay / 12) * 100)}%`,
+            width: `${Math.round(p.size * 3)}px`,
+            height: `${Math.round(p.size * 3)}px`,
+            animation: `twinkle ${Math.round((2 + p.size * 3) * 10) / 10}s ease-in-out ${p.delay / 2}s infinite`,
           }}
         />
       ))}
@@ -76,7 +77,7 @@ function Haze() {
           className="absolute bottom-0 block text-primary/60"
           style={{
             left: `${p.left}%`,
-            fontSize: `${p.size * 18}px`,
+            fontSize: `${Math.round(p.size * 18)}px`,
             ["--drift" as string]: `${p.drift}vw`,
             animation: `rise-float ${p.duration + 6}s linear ${p.delay}s infinite`,
           }}
@@ -98,7 +99,7 @@ function Confetti() {
           className="absolute top-0 block text-primary/70"
           style={{
             left: `${p.left}%`,
-            fontSize: `${p.size * 14}px`,
+            fontSize: `${Math.round(p.size * 14)}px`,
             opacity: p.opacity,
             ["--drift" as string]: `${p.drift}vw`,
             animation: `fall-drift ${p.duration}s linear ${p.delay}s infinite`,
