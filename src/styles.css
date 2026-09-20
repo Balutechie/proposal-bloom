@@ -59,6 +59,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
+  --color-glow: var(--glow);
 }
 
 :root {
@@ -140,5 +143,223 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+/* ---------------------------------------------------------------
+ * Romantic themes. Each [data-theme] overrides the semantic tokens
+ * so every component restyles at once.
+ * --------------------------------------------------------------- */
+
+:root,
+[data-theme="rose"] {
+  --radius: 1.25rem;
+  --font-display-family: "Playfair Display", serif;
+  --font-body-family: "Outfit", sans-serif;
+  --background: oklch(0.975 0.018 350);
+  --foreground: oklch(0.32 0.09 350);
+  --card: oklch(0.995 0.008 350);
+  --card-foreground: oklch(0.32 0.09 350);
+  --popover: oklch(0.995 0.008 350);
+  --popover-foreground: oklch(0.32 0.09 350);
+  --primary: oklch(0.58 0.19 5);
+  --primary-foreground: oklch(0.99 0.01 350);
+  --secondary: oklch(0.93 0.04 350);
+  --secondary-foreground: oklch(0.38 0.1 350);
+  --muted: oklch(0.94 0.025 350);
+  --muted-foreground: oklch(0.52 0.06 350);
+  --accent: oklch(0.88 0.07 20);
+  --accent-foreground: oklch(0.32 0.09 350);
+  --border: oklch(0.89 0.04 350);
+  --input: oklch(0.89 0.04 350);
+  --ring: oklch(0.58 0.19 5);
+  --glow: oklch(0.7 0.16 5 / 35%);
+  --theme-bg: radial-gradient(
+      120% 90% at 50% 0%,
+      oklch(0.95 0.05 350) 0%,
+      transparent 60%
+    ),
+    radial-gradient(90% 70% at 90% 100%, oklch(0.93 0.06 20) 0%, transparent 55%),
+    oklch(0.975 0.018 350);
+}
+
+[data-theme="starlit"] {
+  --radius: 1rem;
+  --font-display-family: "Cormorant Garamond", serif;
+  --font-body-family: "Outfit", sans-serif;
+  --background: oklch(0.2 0.06 265);
+  --foreground: oklch(0.95 0.02 90);
+  --card: oklch(0.27 0.06 265);
+  --card-foreground: oklch(0.95 0.02 90);
+  --popover: oklch(0.27 0.06 265);
+  --popover-foreground: oklch(0.95 0.02 90);
+  --primary: oklch(0.82 0.14 85);
+  --primary-foreground: oklch(0.22 0.06 265);
+  --secondary: oklch(0.32 0.06 265);
+  --secondary-foreground: oklch(0.95 0.02 90);
+  --muted: oklch(0.31 0.05 265);
+  --muted-foreground: oklch(0.75 0.03 265);
+  --accent: oklch(0.45 0.11 280);
+  --accent-foreground: oklch(0.95 0.02 90);
+  --border: oklch(0.82 0.14 85 / 25%);
+  --input: oklch(0.82 0.14 85 / 25%);
+  --ring: oklch(0.82 0.14 85);
+  --glow: oklch(0.82 0.14 85 / 40%);
+  --theme-bg: radial-gradient(
+      110% 80% at 50% 0%,
+      oklch(0.3 0.09 280) 0%,
+      transparent 65%
+    ),
+    oklch(0.17 0.05 265);
+}
+
+[data-theme="sunset"] {
+  --radius: 1.75rem;
+  --font-display-family: "Quicksand", sans-serif;
+  --font-body-family: "Quicksand", sans-serif;
+  --background: oklch(0.97 0.03 60);
+  --foreground: oklch(0.35 0.1 35);
+  --card: oklch(0.99 0.015 60);
+  --card-foreground: oklch(0.35 0.1 35);
+  --popover: oklch(0.99 0.015 60);
+  --popover-foreground: oklch(0.35 0.1 35);
+  --primary: oklch(0.67 0.18 35);
+  --primary-foreground: oklch(0.99 0.01 60);
+  --secondary: oklch(0.93 0.06 60);
+  --secondary-foreground: oklch(0.4 0.1 35);
+  --muted: oklch(0.94 0.04 60);
+  --muted-foreground: oklch(0.55 0.07 40);
+  --accent: oklch(0.86 0.11 70);
+  --accent-foreground: oklch(0.35 0.1 35);
+  --border: oklch(0.89 0.05 50);
+  --input: oklch(0.89 0.05 50);
+  --ring: oklch(0.67 0.18 35);
+  --glow: oklch(0.75 0.16 45 / 40%);
+  --theme-bg: linear-gradient(
+    170deg,
+    oklch(0.95 0.06 75) 0%,
+    oklch(0.93 0.07 45) 45%,
+    oklch(0.9 0.08 20) 100%
+  );
+}
+
+[data-theme="vintage"] {
+  --radius: 0.375rem;
+  --font-display-family: "Special Elite", serif;
+  --font-body-family: "Outfit", sans-serif;
+  --background: oklch(0.955 0.022 85);
+  --foreground: oklch(0.34 0.04 20);
+  --card: oklch(0.975 0.015 85);
+  --card-foreground: oklch(0.34 0.04 20);
+  --popover: oklch(0.975 0.015 85);
+  --popover-foreground: oklch(0.34 0.04 20);
+  --primary: oklch(0.52 0.08 350);
+  --primary-foreground: oklch(0.97 0.015 85);
+  --secondary: oklch(0.91 0.03 85);
+  --secondary-foreground: oklch(0.38 0.05 20);
+  --muted: oklch(0.92 0.025 85);
+  --muted-foreground: oklch(0.52 0.03 40);
+  --accent: oklch(0.78 0.08 85);
+  --accent-foreground: oklch(0.34 0.04 20);
+  --border: oklch(0.85 0.03 70);
+  --input: oklch(0.85 0.03 70);
+  --ring: oklch(0.52 0.08 350);
+  --glow: oklch(0.6 0.07 350 / 30%);
+  --theme-bg: radial-gradient(
+      100% 80% at 50% 0%,
+      oklch(0.97 0.03 85) 0%,
+      transparent 70%
+    ),
+    oklch(0.945 0.025 80);
+}
+
+@layer base {
+  body {
+    background: var(--theme-bg);
+    background-attachment: fixed;
+    font-family: var(--font-body-family);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display-family);
+  }
+}
+
+/* Background effect animations */
+@keyframes fall-drift {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 6vw), 112vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rise-float {
+  0% {
+    transform: translate3d(0, 10vh, 0) scale(0.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--drift, -5vw), -110vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes haze-shift {
+  0%,
+  100% {
+    transform: translate3d(-4%, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) scale(1.2);
+  }
+}
+
+@keyframes heart-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.06);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+}
+
+.animate-heart-beat {
+  animation: heart-beat 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-bg-effect] {
+    display: none;
+  }
+  .animate-heart-beat {
+    animation: none;
   }
 }
